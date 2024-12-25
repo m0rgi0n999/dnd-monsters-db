@@ -8,15 +8,11 @@ git clone <repository-url>
 
 cd dnd-monsters-db
 
-3. Install the dependencies:
-
-npm install
-
-4. Start the PHP server:
+3. Start the PHP server:
 
 php -S localhost:8000 -t public
 
-5. Access the application in your browser:
+4. Access the application in your browser:
 
 http://localhost:8000
 
