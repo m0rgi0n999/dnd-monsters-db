@@ -29,6 +29,14 @@ error_reporting(E_ALL);
             </form>
         </section>
         <section>
+            <h2>Search Monsters</h2>
+            <form action="index.php" method="get">
+                <label for="search">Search:</label>
+                <input type="text" id="search" name="search" value="<?php echo htmlspecialchars($_GET['search'] ?? ''); ?>">
+                <button type="submit">Search</button>
+            </form>
+        </section>
+        <section>
             <h2>Monster List</h2>
             <?php include 'list_monsters.php'; ?>
         </section>

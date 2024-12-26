@@ -1,8 +1,17 @@
 <?php
 require_once '../src/db.php';
 
-$sql = 'SELECT * FROM monsters';
-$stmt = $pdo->query($sql);
+$search = $_GET['search'] ?? '';
+
+if ($search) {
+    $sql = 'SELECT * FROM monsters WHERE name LIKE ? OR type LIKE ?';
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute(['%' . $search . '%', '%' . $search . '%']);
+} else {
+    $sql = 'SELECT * FROM monsters';
+    $stmt = $pdo->query($sql);
+}
+
 $monsters = $stmt->fetchAll();
 
 if ($monsters) {
