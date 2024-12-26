@@ -9,7 +9,7 @@ error_reporting(E_ALL);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dungeons & Dragons Monsters Database</title>
-    <link rel="stylesheet" href="styles/main.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../styles/main.css?v=<?php echo time(); ?>">
 </head>
 <body>
     <header>
