@@ -32,17 +32,17 @@ error_reporting(E_ALL);
                 <fieldset>
                     <legend>Abilities</legend>
                     <label for="strength">Strength:</label>
-                    <input type="number" id="strength" name="strength" required>
+                    <input type="number" id="strength" name="strength" class="ability" required>
                     <label for="dexterity">Dexterity:</label>
-                    <input type="number" id="dexterity" name="dexterity" required>
+                    <input type="number" id="dexterity" name="dexterity" class="ability" required>
                     <label for="constitution">Constitution:</label>
-                    <input type="number" id="constitution" name="constitution" required>
+                    <input type="number" id="constitution" name="constitution" class="ability" required>
                     <label for="intelligence">Intelligence:</label>
-                    <input type="number" id="intelligence" name="intelligence" required>
+                    <input type="number" id="intelligence" name="intelligence" class="ability" required>
                     <label for="wisdom">Wisdom:</label>
-                    <input type="number" id="wisdom" name="wisdom" required>
+                    <input type="number" id="wisdom" name="wisdom" class="ability" required>
                     <label for="charisma">Charisma:</label>
-                    <input type="number" id="charisma" name="charisma" required>
+                    <input type="number" id="charisma" name="charisma" class="ability" required>
                 </fieldset>
                 <button type="submit">Add Monster</button>
             </form>
