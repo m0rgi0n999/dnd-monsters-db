@@ -21,7 +21,10 @@ $monsters = $stmt->fetchAll();
 if ($monsters) {
     echo '<ul>';
     foreach ($monsters as $monster) {
-        echo '<li>' . htmlspecialchars($monster['name']) . ' - ' . htmlspecialchars($monster['type']) . ' - ' . htmlspecialchars($monster['hitPoints']) . ' HP';
+        echo '<li>';
+        echo htmlspecialchars($monster['name']) . ' - ' . htmlspecialchars($monster['type']) . ' - ' . htmlspecialchars($monster['hitPoints']) . ' HP - ';
+        echo 'AC: ' . htmlspecialchars($monster['armor_class']) . ' - CR: ' . htmlspecialchars($monster['challenge_rating']) . ' - ';
+        echo 'Abilities: ' . htmlspecialchars($monster['abilities']);
         echo ' <a href="edit_monster.php?id=' . $monster['id'] . '">Edit</a>';
         echo ' <a href="delete_monster.php?id=' . $monster['id'] . '">Delete</a>';
         echo '</li>';

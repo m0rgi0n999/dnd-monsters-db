@@ -25,6 +25,12 @@ error_reporting(E_ALL);
                 <input type="text" id="type" name="type" required>
                 <label for="hitPoints">Hit Points:</label>
                 <input type="number" id="hitPoints" name="hitPoints" required>
+                <label for="armorClass">Armor Class:</label>
+                <input type="number" id="armorClass" name="armorClass" required>
+                <label for="challengeRating">Challenge Rating:</label>
+                <input type="number" step="0.1" id="challengeRating" name="challengeRating" required>
+                <label for="abilities">Abilities:</label>
+                <textarea id="abilities" name="abilities"></textarea>
                 <button type="submit">Add Monster</button>
             </form>
         </section>
