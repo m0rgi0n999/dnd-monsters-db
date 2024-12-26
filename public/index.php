@@ -70,10 +70,20 @@ error_reporting(E_ALL);
             padding: 0 10px;
         }
 
+        .abilities {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .ability {
+            flex: 1 1 100px;
+            display: flex;
+            flex-direction: column;
+        }
+
         input[type="number"].ability {
-            width: 50px;
-            display: inline-block;
-            margin-right: 10px;
+            width: 100%;
         }
 
         button {
@@ -152,18 +162,32 @@ error_reporting(E_ALL);
                 <input type="number" step="0.1" id="challengeRating" name="challengeRating" required>
                 <fieldset>
                     <legend>Abilities</legend>
-                    <label for="strength">Strength:</label>
-                    <input type="number" id="strength" name="strength" class="ability" required>
-                    <label for="dexterity">Dexterity:</label>
-                    <input type="number" id="dexterity" name="dexterity" class="ability" required>
-                    <label for="constitution">Constitution:</label>
-                    <input type="number" id="constitution" name="constitution" class="ability" required>
-                    <label for="intelligence">Intelligence:</label>
-                    <input type="number" id="intelligence" name="intelligence" class="ability" required>
-                    <label for="wisdom">Wisdom:</label>
-                    <input type="number" id="wisdom" name="wisdom" class="ability" required>
-                    <label for="charisma">Charisma:</label>
-                    <input type="number" id="charisma" name="charisma" class="ability" required>
+                    <div class="abilities">
+                        <div class="ability">
+                            <label for="strength">Strength:</label>
+                            <input type="number" id="strength" name="strength" class="ability" required>
+                        </div>
+                        <div class="ability">
+                            <label for="dexterity">Dexterity:</label>
+                            <input type="number" id="dexterity" name="dexterity" class="ability" required>
+                        </div>
+                        <div class="ability">
+                            <label for="constitution">Constitution:</label>
+                            <input type="number" id="constitution" name="constitution" class="ability" required>
+                        </div>
+                        <div class="ability">
+                            <label for="intelligence">Intelligence:</label>
+                            <input type="number" id="intelligence" name="intelligence" class="ability" required>
+                        </div>
+                        <div class="ability">
+                            <label for="wisdom">Wisdom:</label>
+                            <input type="number" id="wisdom" name="wisdom" class="ability" required>
+                        </div>
+                        <div class="ability">
+                            <label for="charisma">Charisma:</label>
+                            <input type="number" id="charisma" name="charisma" class="ability" required>
+                        </div>
+                    </div>
                 </fieldset>
                 <button type="submit">Add Monster</button>
             </form>
