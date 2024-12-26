@@ -29,18 +29,21 @@ error_reporting(E_ALL);
                 <input type="number" id="armorClass" name="armorClass" required>
                 <label for="challengeRating">Challenge Rating:</label>
                 <input type="number" step="0.1" id="challengeRating" name="challengeRating" required>
-                <label for="strength">Strength:</label>
-                <input type="number" id="strength" name="strength" required>
-                <label for="dexterity">Dexterity:</label>
-                <input type="number" id="dexterity" name="dexterity" required>
-                <label for="constitution">Constitution:</label>
-                <input type="number" id="constitution" name="constitution" required>
-                <label for="intelligence">Intelligence:</label>
-                <input type="number" id="intelligence" name="intelligence" required>
-                <label for="wisdom">Wisdom:</label>
-                <input type="number" id="wisdom" name="wisdom" required>
-                <label for="charisma">Charisma:</label>
-                <input type="number" id="charisma" name="charisma" required>
+                <fieldset>
+                    <legend>Abilities</legend>
+                    <label for="strength">Strength:</label>
+                    <input type="number" id="strength" name="strength" required>
+                    <label for="dexterity">Dexterity:</label>
+                    <input type="number" id="dexterity" name="dexterity" required>
+                    <label for="constitution">Constitution:</label>
+                    <input type="number" id="constitution" name="constitution" required>
+                    <label for="intelligence">Intelligence:</label>
+                    <input type="number" id="intelligence" name="intelligence" required>
+                    <label for="wisdom">Wisdom:</label>
+                    <input type="number" id="wisdom" name="wisdom" required>
+                    <label for="charisma">Charisma:</label>
+                    <input type="number" id="charisma" name="charisma" required>
+                </fieldset>
                 <button type="submit">Add Monster</button>
             </form>
         </section>
