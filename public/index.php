@@ -10,6 +10,55 @@ error_reporting(E_ALL);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dungeons & Dragons Monsters Database</title>
     <link rel="stylesheet" href="styles/main.css?v=<?php echo time(); ?>">
+    <style>
+        form {
+            background-color: #fff;
+            padding: 1rem;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1rem;
+        }
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        fieldset {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+        legend {
+            font-weight: bold;
+            padding: 0 10px;
+        }
+        input[type="number"].ability {
+            width: 50px;
+            display: inline-block;
+            margin-right: 10px;
+        }
+        button {
+            background-color: #333;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #555;
+        }
+    </style>
 </head>
 <body>
     <header>
