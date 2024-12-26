@@ -140,6 +140,46 @@ error_reporting(E_ALL);
         nav a:hover {
             text-decoration: underline;
         }
+
+        /* Tab styles */
+        .tab {
+            overflow: hidden;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+        }
+
+        .tab button {
+            background-color: inherit;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+            font-size: 17px;
+        }
+
+        .tab button:hover {
+            background-color: #ddd;
+        }
+
+        .tab button.active {
+            background-color: #ccc;
+        }
+
+        .tabcontent {
+            display: none;
+            padding: 1rem;
+            border: 1px solid #ccc;
+            border-top: none;
+            border-radius: 0 0 5px 5px;
+        }
+
+        .tabcontent.active {
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -189,6 +229,28 @@ error_reporting(E_ALL);
                         </div>
                     </div>
                 </fieldset>
+                <div class="tab">
+                    <button type="button" class="tablinks" onclick="openTab(event, 'Skills')">Skills</button>
+                    <button type="button" class="tablinks" onclick="openTab(event, 'Attack')">Attack/Special Qualities</button>
+                    <button type="button" class="tablinks" onclick="openTab(event, 'Feats')">Feats</button>
+                    <button type="button" class="tablinks" onclick="openTab(event, 'Description')">Description</button>
+                </div>
+                <div id="Skills" class="tabcontent">
+                    <label for="skills">Skills:</label>
+                    <textarea id="skills" name="skills" rows="4" cols="50"></textarea>
+                </div>
+                <div id="Attack" class="tabcontent">
+                    <label for="attack">Attack/Special Qualities:</label>
+                    <textarea id="attack" name="attack" rows="4" cols="50"></textarea>
+                </div>
+                <div id="Feats" class="tabcontent">
+                    <label for="feats">Feats:</label>
+                    <textarea id="feats" name="feats" rows="4" cols="50"></textarea>
+                </div>
+                <div id="Description" class="tabcontent">
+                    <label for="description">Description:</label>
+                    <textarea id="description" name="description" rows="4" cols="50"></textarea>
+                </div>
                 <button type="submit">Add Monster</button>
             </form>
         </section>
@@ -205,5 +267,25 @@ error_reporting(E_ALL);
             <?php include 'list_monsters.php'; ?>
         </section>
     </main>
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        // Open the first tab by default
+        document.addEventListener("DOMContentLoaded", function() {
+            document.querySelector(".tablinks").click();
+        });
+    </script>
 </body>
 </html>
