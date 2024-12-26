@@ -84,9 +84,11 @@ error_reporting(E_ALL);
 
         input[type="number"].ability {
             width: 2.5em;
-            height: 1.5em;
+            height: 1em;
             padding: 0;
             text-align: center;
+            font-size: 1em;
+            line-height: 1em;
         }
 
         button {
@@ -203,9 +205,11 @@ error_reporting(E_ALL);
 
         .skill input[type="number"] {
             width: 2.5em;
-            height: 1.5em;
+            height: 1em;
             padding: 0;
             text-align: center;
+            font-size: 1em;
+            line-height: 1em;
         }
     </style>
 </head>
