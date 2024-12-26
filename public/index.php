@@ -83,7 +83,7 @@ error_reporting(E_ALL);
         }
 
         input[type="number"].ability {
-            width: 100%;
+            width: 50px;
         }
 
         button {
@@ -180,6 +180,27 @@ error_reporting(E_ALL);
         .tabcontent.active {
             display: block;
         }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill {
+            flex: 1 1 45%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .skill label {
+            flex: 1;
+        }
+
+        .skill input[type="number"] {
+            width: 50px;
+        }
     </style>
 </head>
 <body>
@@ -236,8 +257,26 @@ error_reporting(E_ALL);
                     <button type="button" class="tablinks" onclick="openTab(event, 'Description')">Description</button>
                 </div>
                 <div id="Skills" class="tabcontent">
-                    <label for="skills">Skills:</label>
-                    <textarea id="skills" name="skills" rows="4" cols="50"></textarea>
+                    <div class="skills-container">
+                        <?php
+                        $skills = [
+                            "Appraise", "Balance", "Bluff", "Climb", "Concentration", "Craft", "Decipher Script",
+                            "Diplomacy", "Disable Device", "Disguise", "Escape Artist", "Forgery", "Gather Information",
+                            "Handle Animal", "Heal", "Hide", "Intimidate", "Jump", "Knowledge (Arcana)", "Knowledge (Dungeoneering)",
+                            "Knowledge (Engineering)", "Knowledge (Geography)", "Knowledge (History)", "Knowledge (Local)",
+                            "Knowledge (Nature)", "Knowledge (Nobility)", "Knowledge (Religion)", "Knowledge (The Planes)",
+                            "Listen", "Move Silently", "Open Lock", "Perform", "Profession", "Ride", "Search", "Sense Motive",
+                            "Sleight of Hand", "Spellcraft", "Spot", "Survival", "Swim", "Tumble", "Use Magic Device", "Use Rope"
+                        ];
+                        foreach ($skills as $skill) {
+                            echo '<div class="skill">';
+                            echo '<input type="checkbox" id="' . strtolower(str_replace(' ', '_', $skill)) . '" name="skills[]" value="' . $skill . '">';
+                            echo '<label for="' . strtolower(str_replace(' ', '_', $skill)) . '">' . $skill . ':</label>';
+                            echo '<input type="number" name="' . strtolower(str_replace(' ', '_', $skill)) . '_value" class="ability" min="0" max="99">';
+                            echo '</div>';
+                        }
+                        ?>
+                    </div>
                 </div>
                 <div id="Attack" class="tabcontent">
                     <label for="attack">Attack/Special Qualities:</label>
