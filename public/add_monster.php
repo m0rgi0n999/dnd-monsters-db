@@ -11,21 +11,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $hitPoints = $_POST['hitPoints'];
     $armorClass = $_POST['armorClass'];
     $challengeRating = $_POST['challengeRating'];
-    $strength = $_POST['strength'];
-    $dexterity = $_POST['dexterity'];
-    $constitution = $_POST['constitution'];
-    $intelligence = $_POST['intelligence'];
-    $wisdom = $_POST['wisdom'];
-    $charisma = $_POST['charisma'];
+    $skills = $_POST['skillsField']; // Get the concatenated skills
 
-    if (!empty($name) && !empty($type) && !empty($hitPoints) && !empty($armorClass) && !empty($challengeRating) && !empty($strength) && !empty($dexterity) && !empty($constitution) && !empty($intelligence) && !empty($wisdom) && !empty($charisma)) {
+    if (!empty($name) && !empty($type) && !empty($hitPoints) && !empty($armorClass) && !empty($challengeRating) && !empty($skills)) {
         try {
-            // Combine abilities into a single string
-            $abilities_combined = "Str: $strength, Dex: $dexterity, Con: $constitution, Int: $intelligence, Wis: $wisdom, Cha: $charisma";
-
-            $sql = 'INSERT INTO monsters (name, type, hitPoints, armor_class, challenge_rating, abilities) VALUES (?, ?, ?, ?, ?, ?)';
+            $sql = 'INSERT INTO monsters (name, type, hitPoints, armorClass, challengeRating, skills) VALUES (?, ?, ?, ?, ?, ?)';
             $stmt = $pdo->prepare($sql);
-            $stmt->execute([$name, $type, $hitPoints, $armorClass, $challengeRating, $abilities_combined]);
+            $stmt->execute([$name, $type, $hitPoints, $armorClass, $challengeRating, $skills]);
             header('Location: index.php');
             exit();
         } catch (PDOException $e) {

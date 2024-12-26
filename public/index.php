@@ -220,7 +220,7 @@ error_reporting(E_ALL);
     <main>
         <section>
             <h2>Add Monster</h2>
-            <form action="add_monster.php" method="post">
+            <form id="monsterForm" action="add_monster.php" method="post" onsubmit="prepareSkills()">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
                 <label for="type">Type:</label>
@@ -300,6 +300,7 @@ error_reporting(E_ALL);
                     <label for="description">Description:</label>
                     <textarea id="description" name="description" rows="4" cols="50"></textarea>
                 </div>
+                <input type="hidden" id="skillsField" name="skillsField">
                 <button type="submit">Add Monster</button>
             </form>
         </section>
@@ -335,6 +336,18 @@ error_reporting(E_ALL);
         document.addEventListener("DOMContentLoaded", function() {
             document.querySelector(".tablinks").click();
         });
+
+        function prepareSkills() {
+            var skills = [];
+            document.querySelectorAll('.skills-container .skill').forEach(function(skill) {
+                var checkbox = skill.querySelector('input[type="checkbox"]');
+                var value = skill.querySelector('input[type="number"]').value;
+                if (checkbox.checked) {
+                    skills.push(checkbox.value + ':' + value);
+                }
+            });
+            document.getElementById('skillsField').value = skills.join(',');
+        }
     </script>
 </body>
 </html>
