@@ -30,7 +30,9 @@ error_reporting(E_ALL);
                 <label for="challengeRating">Challenge Rating:</label>
                 <input type="number" step="0.1" id="challengeRating" name="challengeRating" required>
                 <label for="abilities">Abilities:</label>
-                <textarea id="abilities" name="abilities"></textarea>
+                <input type="text" id="ability1" name="abilities[]" placeholder="Ability 1">
+                <input type="text" id="ability2" name="abilities[]" placeholder="Ability 2">
+                <input type="text" id="ability3" name="abilities[]" placeholder="Ability 3">
                 <button type="submit">Add Monster</button>
             </form>
         </section>

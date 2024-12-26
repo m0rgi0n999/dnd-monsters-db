@@ -15,9 +15,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (!empty($name) && !empty($type) && !empty($hitPoints) && !empty($armorClass) && !empty($challengeRating) && !empty($abilities)) {
         try {
+            // Combine abilities into a single string
+            $abilities_combined = implode(', ', array_filter($abilities));
+
             $sql = 'INSERT INTO monsters (name, type, hitPoints, armor_class, challenge_rating, abilities) VALUES (?, ?, ?, ?, ?, ?)';
             $stmt = $pdo->prepare($sql);
-            $stmt->execute([$name, $type, $hitPoints, $armorClass, $challengeRating, $abilities]);
+            $stmt->execute([$name, $type, $hitPoints, $armorClass, $challengeRating, $abilities_combined]);
             header('Location: index.php');
             exit();
         } catch (PDOException $e) {
