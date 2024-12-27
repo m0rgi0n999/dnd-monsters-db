@@ -50,7 +50,8 @@ error_reporting(E_ALL);
         }
 
         input[type="text"],
-        input[type="number"] {
+        input[type="number"],
+        select {
             width: 100%;
             padding: 0.5rem;
             margin-bottom: 1rem;
@@ -225,12 +226,6 @@ error_reporting(E_ALL);
                 <input type="text" id="name" name="name" required>
                 <label for="type">Type:</label>
                 <input type="text" id="type" name="type" required>
-                <label for="hitPoints">Hit Points:</label>
-                <input type="number" id="hitPoints" name="hitPoints" required>
-                <label for="armorClass">Armor Class:</label>
-                <input type="number" id="armorClass" name="armorClass" required>
-                <label for="challengeRating">Challenge Rating:</label>
-                <input type="number" step="0.1" id="challengeRating" name="challengeRating" required>
                 <fieldset>
                     <legend>Abilities</legend>
                     <div class="abilities">
@@ -261,10 +256,42 @@ error_reporting(E_ALL);
                     </div>
                 </fieldset>
                 <div class="tab">
+                    <button type="button" class="tablinks" onclick="openTab(event, 'BasicInfo')">Basic Info</button>
                     <button type="button" class="tablinks" onclick="openTab(event, 'Skills')">Skills</button>
                     <button type="button" class="tablinks" onclick="openTab(event, 'Attack')">Attack/Special Qualities</button>
                     <button type="button" class="tablinks" onclick="openTab(event, 'Feats')">Feats</button>
                     <button type="button" class="tablinks" onclick="openTab(event, 'Description')">Description</button>
+                </div>
+                <div id="BasicInfo" class="tabcontent">
+                    <label for="hitPoints">Hit Points:</label>
+                    <input type="number" id="hitPoints" name="hitPoints" required>
+                    <label for="hitDice">Hit Dice:</label>
+                    <input type="text" id="hitDice" name="hitDice" required>
+                    <label for="armorClass">Armor Class:</label>
+                    <input type="number" id="armorClass" name="armorClass" required>
+                    <label for="challengeRating">Challenge Rating:</label>
+                    <input type="number" step="0.1" id="challengeRating" name="challengeRating" required>
+                    <label for="treasure">Treasure:</label>
+                    <input type="text" id="treasure" name="treasure">
+                    <label for="levelAdvancement">Level Advancement:</label>
+                    <input type="text" id="levelAdvancement" name="levelAdvancement">
+                    <label for="speed">Speed:</label>
+                    <select id="speedType" name="speedType">
+                        <option value="land">Land</option>
+                        <option value="fly">Fly</option>
+                        <option value="swim">Swim</option>
+                        <option value="burrow">Burrow</option>
+                        <option value="climb">Climb</option>
+                    </select>
+                    <input type="number" id="speed" name="speed" required>
+                    <label for="saves">Saves:</label>
+                    <input type="text" id="saves" name="saves">
+                    <label for="environment">Environment:</label>
+                    <input type="text" id="environment" name="environment">
+                    <label for="organisation">Organisation:</label>
+                    <input type="text" id="organisation" name="organisation">
+                    <label for="advancement">Advancement:</label>
+                    <input type="text" id="advancement" name="advancement">
                 </div>
                 <div id="Skills" class="tabcontent">
                     <div class="skills-container">
