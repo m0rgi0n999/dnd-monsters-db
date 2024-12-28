@@ -224,6 +224,16 @@ error_reporting(E_ALL);
             <form id="monsterForm" action="add_monster.php" method="post" onsubmit="prepareSkills()">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
+                <label for="size">Size:</label>
+                <select id="size" name="size" required>
+                    <option value="Tiny">Tiny</option>
+                    <option value="Small">Small</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Large">Large</option>
+                    <option value="Huge">Huge</option>
+                    <option value="Gargantuan">Gargantuan</option>
+                    <option value="Colossal">Colossal</option>
+                </select>
                 <label for="type">Type:</label>
                 <input type="text" id="type" name="type" required>
                 <fieldset>

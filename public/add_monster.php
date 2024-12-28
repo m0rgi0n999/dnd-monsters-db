@@ -6,6 +6,7 @@ error_reporting(E_ALL);
 require_once '../src/db.php';
 
 $name = $_POST['name'];
+$size = $_POST['size'];
 $type = $_POST['type'];
 $hitPoints = $_POST['hitPoints'];
 $hitDice = $_POST['hitDice'];
@@ -22,9 +23,9 @@ $advancement = $_POST['advancement'];
 $skills = $_POST['skillsField']; // Get the concatenated skills
 
 // Insert the monster into the database
-$sql = "INSERT INTO monsters (name, type, hitPoints, hitDice, armorClass, challengeRating, treasure, levelAdvancement, speedType, speed, saves, environment, organisation, advancement, skills) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+$sql = "INSERT INTO monsters (name, size, type, hitPoints, hitDice, armorClass, challengeRating, treasure, levelAdvancement, speedType, speed, saves, environment, organisation, advancement, skills) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 $stmt = $pdo->prepare($sql);
-$stmt->execute([$name, $type, $hitPoints, $hitDice, $armorClass, $challengeRating, $treasure, $levelAdvancement, $speedType, $speed, $saves, $environment, $organisation, $advancement, $skills]);
+$stmt->execute([$name, $size, $type, $hitPoints, $hitDice, $armorClass, $challengeRating, $treasure, $levelAdvancement, $speedType, $speed, $saves, $environment, $organisation, $advancement, $skills]);
 
 header('Location: index.php');
 exit;
