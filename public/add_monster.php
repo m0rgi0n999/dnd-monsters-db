@@ -14,18 +14,24 @@ $armorClass = $_POST['armorClass'];
 $challengeRating = $_POST['challengeRating'];
 $treasure = $_POST['treasure'];
 $levelAdvancement = $_POST['levelAdvancement'];
-$speedType = $_POST['speedType'];
-$speed = $_POST['speed'];
-$saves = $_POST['saves'];
+$speedTypes = $_POST['speedType'];
+$speeds = $_POST['speed'];
+$speed = implode(', ', array_map(function($type, $value) {
+    return "$type: $value";
+}, $speedTypes, $speeds));
+$fortSave = $_POST['fortSave'];
+$refSave = $_POST['refSave'];
+$willSave = $_POST['willSave'];
+$saves = "Fort: $fortSave, Ref: $refSave, Will: $willSave";
 $environment = $_POST['environment'];
 $organisation = $_POST['organisation'];
 $advancement = $_POST['advancement'];
 $skills = $_POST['skillsField']; // Get the concatenated skills
 
 // Insert the monster into the database
-$sql = "INSERT INTO monsters (name, size, type, hitPoints, hitDice, armorClass, challengeRating, treasure, levelAdvancement, speedType, speed, saves, environment, organisation, advancement, skills) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+$sql = "INSERT INTO monsters (name, size, type, hitPoints, hitDice, armorClass, challengeRating, treasure, levelAdvancement, speed, saves, environment, organisation, advancement, skills) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 $stmt = $pdo->prepare($sql);
-$stmt->execute([$name, $size, $type, $hitPoints, $hitDice, $armorClass, $challengeRating, $treasure, $levelAdvancement, $speedType, $speed, $saves, $environment, $organisation, $advancement, $skills]);
+$stmt->execute([$name, $size, $type, $hitPoints, $hitDice, $armorClass, $challengeRating, $treasure, $levelAdvancement, $speed, $saves, $environment, $organisation, $advancement, $skills]);
 
 header('Location: index.php');
 exit;

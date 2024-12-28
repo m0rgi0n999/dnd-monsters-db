@@ -286,16 +286,25 @@ error_reporting(E_ALL);
                     <label for="levelAdvancement">Level Advancement:</label>
                     <input type="text" id="levelAdvancement" name="levelAdvancement">
                     <label for="speed">Speed:</label>
-                    <select id="speedType" name="speedType">
-                        <option value="land">Land</option>
-                        <option value="fly">Fly</option>
-                        <option value="swim">Swim</option>
-                        <option value="burrow">Burrow</option>
-                        <option value="climb">Climb</option>
-                    </select>
-                    <input type="number" id="speed" name="speed" required>
-                    <label for="saves">Saves:</label>
-                    <input type="text" id="saves" name="saves">
+                    <div id="speedContainer">
+                        <div>
+                            <select name="speedType[]">
+                                <option value="land">Land</option>
+                                <option value="fly">Fly</option>
+                                <option value="swim">Swim</option>
+                                <option value="burrow">Burrow</option>
+                                <option value="climb">Climb</option>
+                            </select>
+                            <input type="number" name="speed[]" required>
+                        </div>
+                    </div>
+                    <button type="button" onclick="addSpeedField()">Add Another Speed</button>
+                    <label for="fortSave">Fortitude Save:</label>
+                    <input type="number" id="fortSave" name="fortSave" required>
+                    <label for="refSave">Reflex Save:</label>
+                    <input type="number" id="refSave" name="refSave" required>
+                    <label for="willSave">Will Save:</label>
+                    <input type="number" id="willSave" name="willSave" required>
                     <label for="environment">Environment:</label>
                     <input type="text" id="environment" name="environment">
                     <label for="organisation">Organisation:</label>
@@ -384,6 +393,22 @@ error_reporting(E_ALL);
                 }
             });
             document.getElementById('skillsField').value = skills.join(',');
+        }
+
+        function addSpeedField() {
+            var container = document.getElementById('speedContainer');
+            var div = document.createElement('div');
+            div.innerHTML = `
+                <select name="speedType[]">
+                    <option value="land">Land</option>
+                    <option value="fly">Fly</option>
+                    <option value="swim">Swim</option>
+                    <option value="burrow">Burrow</option>
+                    <option value="climb">Climb</option>
+                </select>
+                <input type="number" name="speed[]" required>
+            `;
+            container.appendChild(div);
         }
     </script>
 </body>
